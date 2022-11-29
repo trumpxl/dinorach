@@ -90,12 +90,12 @@ getgenv()['Check_Setting'] = function(Name)
     if not _G.Dis and not isfolder('Tien Hub') then
         makefolder('Tien Hub')
     end
-    if not _G.Dis and not isfile('Switch Hub BF Premium/'..Name..'.json') then
+    if not _G.Dis and not isfile('Tien Hub/'..Name..'.json') then
         writefile('Switch Hub BF Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
     end
 end
 getgenv()['Get_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Switch Hub BF Premium') and isfile('Switch Hub BF Premium/'..Name..'.json') then
+    if not _G.Dis and isfolder('Tien Hub') and isfile('Tien Hub/'..Name..'.json') then
         _G.Setting_table = JsonDecode(readfile('Switch Hub BF Premium/'..Name..'.json'))
         return _G.Setting_table
 	elseif not _G.Dis then
@@ -103,8 +103,8 @@ getgenv()['Get_Setting'] = function(Name)
     end
 end
 getgenv()['Update_Setting'] = function(Name)
-    if not _G.Dis and isfolder('Tien Hub') and isfile('Switch Hub BF Premium/'..Name..'.json') then
-        writefile('Switch Hub BF Premium/'..Name..'.json',JsonEncode(_G.Setting_table))
+    if not _G.Dis and isfolder('Tien Hub') and isfile('Tien Hub/'..Name..'.json') then
+        writefile('Tien Hub/'..Name..'.json',JsonEncode(_G.Setting_table))
 	elseif not _G.Dis then
         Check_Setting(Name)
     end
@@ -12154,4 +12154,4 @@ Hop_Tab:Toggle("Auto Valkyrie Helmet Hop","9606294253",_G.Setting_table.Auto_Val
 end)
 if _G.Setting_table.Auto_Valkyrie_Helmet then
 	Auto_Valkyrie_Helmet = true
-end
+end,
